@@ -1,128 +1,141 @@
-☀️ LumerWeather - Previsão do Tempo
+# ☀️ LumerWeather – Previsão do Tempo em Tempo Real
 
-📜 Descrição do Projeto
+**LumerWeather** é uma aplicação web moderna e minimalista para consultar a previsão do tempo de qualquer cidade do mundo. Desenvolvida com **React** e **Vite**, a aplicação consome a **API da OpenWeatherMap** para fornecer dados meteorológicos atualizados, incluindo clima atual e previsão para os próximos 5 dias.
 
-LumerWeather é uma aplicação web moderna e clean para consulta de previsão do tempo. Desenvolvida com React e Vite, ela permite que os usuários pesquisem informações meteorológicas de qualquer cidade do mundo. A aplicação consome a API da OpenWeatherMap para obter dados em tempo real, incluindo a temperatura atual, sensação térmica, umidade, e também a previsão para os próximos 5 dias.
+O projeto é focado em demonstrar boas práticas com **componentes funcionais**, **hooks do React** (`useState` e `useRef`) e chamadas assíncronas com **Axios**.
 
-Este projeto foi criado para demonstrar o uso de componentes funcionais em React, gerenciamento de estado com useState, manipulação de referências do DOM com useRef, e a realização de chamadas assíncronas a uma API externa utilizando a biblioteca axios.
+---
 
-✨ Funcionalidades
+## ✨ Funcionalidades
 
-Busca por Cidade: Pesquise o tempo em qualquer cidade do mundo.
+### 🔎 Busca por Cidade
 
-Clima Atual Detalhado:
+* Pesquisa por qualquer cidade do mundo.
+* Exibição dinâmica das informações meteorológicas ao digitar e pesquisar.
 
-Exibe o nome da cidade.
+### 🌤️ Clima Atual Detalhado
 
-Mostra a temperatura atual em graus Celsius.
+* Nome da cidade consultada.
+* Temperatura atual (°C).
+* Sensação térmica.
+* Umidade relativa do ar.
+* Pressão atmosférica.
+* Ícone e descrição textual da condição climática (ensolarado, nublado, etc.).
 
-Ícone dinâmico que representa a condição climática atual (ensolarado, nublado, chuvoso, etc.).
+### 📅 Previsão para os Próximos 5 Dias
 
-Descrição textual da condição do tempo (ex: "céu limpo", "chuva moderada").
+* Agrupamento inteligente de dados (a cada 3h → previsão diária consolidada).
+* Para cada dia:
 
-Informações adicionais como sensação térmica, umidade e pressão atmosférica.
+  * Dia da semana.
+  * Ícone climático.
+  * Descrição do clima.
+  * Temperaturas mínima e máxima.
 
-Previsão para 5 Dias:
+### 💡 Interface Clean & Responsiva
 
-Exibe um resumo da previsão para os próximos 5 dias.
+* Design com **gradiente de fundo** suave.
+* Cartões informativos bem espaçados e legíveis.
+* Uso de **Flexbox** para responsividade.
 
-Para cada dia, mostra o dia da semana, um ícone do tempo, a descrição e as temperaturas mínima e máxima.
+---
 
-A lógica agrupa as previsões de 3 em 3 horas fornecidas pela API para mostrar uma previsão diária consolidada.
+## ⚙️ Tecnologias Utilizadas
 
-Interface Limpa: Design simples com um gradiente de fundo agradável e cartões de informação de fácil leitura.
+### 🧩 Front-End
 
-🚀 Tecnologias Utilizadas
+* **React (v19)** – Biblioteca para interfaces de usuário.
+* **Vite** – Ferramenta de build rápida e moderna.
 
-Front-End:
+### 🌐 Requisições HTTP
 
-React (v19): Biblioteca para construção de interfaces de usuário.
+* **Axios** – Cliente HTTP baseado em Promises.
 
-Vite: Ferramenta de build moderna e rápida para desenvolvimento front-end.
+### ☁️ API Externa
 
-Requisições HTTP:
+* **OpenWeatherMap API** – Dados de clima e previsão meteorológica.
 
-Axios: Cliente HTTP baseado em Promises para realizar chamadas à API.
+### 🎨 Estilização
 
-API Externa:
+* **CSS Puro** – Organização via arquivos `.css`, com foco em simplicidade e legibilidade.
 
-OpenWeatherMap API: Fornece os dados de clima e previsão do tempo.
+### 🔍 Qualidade de Código
 
-Estilização:
+* **ESLint** – Linter para padronização e boas práticas em JavaScript.
 
-CSS puro: Estilização direta através de arquivos .css, com uso de Flexbox para layouts responsivos.
+---
 
-Linting:
+## 🛠️ Como Executar o Projeto Localmente
 
-ESLint: Para garantir a qualidade e a padronização do código JavaScript.
+### 📋 Pré-requisitos
 
-⚙️ Configuração e Instalação
+* **Node.js** (versão 18 ou superior)
+* **Editor de código**, como VS Code
+* **Chave da API da OpenWeatherMap** (plano gratuito já é suficiente)
 
-Para executar este projeto localmente, siga os passos abaixo.
+---
 
-Pré-requisitos
+### 🔧 Passos para Configuração
 
-Node.js (versão 18 ou superior) instalado.
+#### 1. Clone o Repositório
 
-Um editor de código, como o VS Code.
-
-Uma chave de API (API Key) da OpenWeatherMap. O plano gratuito é suficiente.
-
-Passos
-
-Clone o repositório:
-
-Generated bash
+```bash
 git clone https://github.com/seu-usuario/lumer-weather.git
 cd lumer-weather
+```
 
+#### 2. Instale as Dependências
 
-Instale as dependências:
-Utilize o npm ou yarn para instalar os pacotes necessários definidos no package.json.
-
-Generated bash
+```bash
 npm install
-IGNORE_WHEN_COPYING_START
-content_copy
-download
-Use code with caution.
-Bash
-IGNORE_WHEN_COPYING_END
+```
 
-Configure a Chave da API:
-Para que a aplicação funcione, você precisa inserir sua chave da OpenWeatherMap no código.
+Ou, se preferir:
 
-Abra o arquivo src/App.jsx.
+```bash
+yarn install
+```
 
-Localize a função searchCity().
+#### 3. Configure a Chave da API
 
-Encontre a variável key e substitua o valor "SEU_TOKEN_AQUI" pela sua chave de API.
+Abra o arquivo `src/App.jsx` e localize a função `searchCity()`.
+Substitua `"SUA_CHAVE_API_AQUI"` pela sua chave válida da OpenWeatherMap:
 
-Generated javascript
+```jsx
 // Dentro de src/App.jsx
-
 async function searchCity() {
-    const city = inputRef.current.value;
-    const key = "SUA_CHAVE_API_AQUI"; // <-- SUBSTITUA AQUI
+  const city = inputRef.current.value;
+  const key = "SUA_CHAVE_API_AQUI"; // <-- SUBSTITUA AQUI
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=pt_br&units=metric`;
-    // ...
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=pt_br&units=metric`;
+  // ...
 }
-IGNORE_WHEN_COPYING_START
-content_copy
-download
-Use code with caution.
-JavaScript
-IGNORE_WHEN_COPYING_END
+```
 
-Execute o projeto:
-Após instalar as dependências e configurar a chave, inicie o servidor de desenvolvimento.
+#### 4. Execute o Projeto em Modo de Desenvolvimento
 
-Generated bash
+```bash
 npm run dev
-IGNORE_WHEN_COPYING_START
-content_copy
-download
-Use code with caution.
-Bash
-IGNORE_WHEN_COPYING_END
+```
+
+---
+
+## 📌 Status do Projeto
+
+✅ **Concluído** – MVP funcional com todas as principais funcionalidades.
+🧠 **Futuras melhorias possíveis:**
+
+* Histórico de cidades buscadas
+* Detecção automática de localização via Geolocalização
+* Dark mode
+* Adição de loading spinners e animações
+
+---
+
+## 👨‍💻 Autor
+
+**Enzo De Castro**
+Desenvolvedor Front-End | Criador do LumerWeather
+🔗 www.linkedin.com/in/enzodecastro47
+📧 enzodicastro47@gmail.com
+---
